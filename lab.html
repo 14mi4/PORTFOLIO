@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamia Degag - Lab</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+<body class="fade-in">
+  <style>
+    nav {
+      position: fixed !important;
+      background-color: #1c1c1c !important;
+    }
+    body {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    .fade-in.loaded {
+      opacity: 1;
+    }
+  </style>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid justify-content-between">
+    <!-- Left side: Social Icons -->
+    <div class="navbar-icons">
+      <a href="mailto:lamiadegag01@gmail.com" class="nav-icon">
+        <i class="fa-solid fa-paper-plane"></i>
+      </a>
+      <a href="https://linkedin.com/in/lamia-degag-0l010" target="_blank" class="nav-icon">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/14mi4" target="_blank" class="nav-icon">
+        <i class="fa-brands fa-github-alt"></i>
+      </a>
+      <a href="lamiadegag_CV.pdf" target="_blank" class="nav-icon">
+        <i class="fa-solid fa-file-lines"></i>
+      </a>
+    </div>
+
+    <!-- Center: Brand -->
+    <a class="navbar-brand mx-auto" href="index.html">
+      <img src="images/favicon_lime/android-chrome-512x512.png" alt="" width="35" height="35" class="d-inline-block align-text-top">
+    </a>
+
+    <!-- Right side: Navigation links -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link custom-nav-link" href="index.html#projects">WORK</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link custom-nav-link" href="about.html">ABOUT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link custom-nav-link" href="lab.html">LAB</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="navbar-border"></div>
+</nav>
+
+
+<!-- Lab Section -->
+<section id="lab">
+  <div class="work">
+    <div class="col-md-7 display">
+      <img id="displayImage" src="" alt="Image Display" class="img-fluid">
+      <div id="imageCaption" class="caption"></div>
+    </div>
+    <div class="col-md-5 scrollable">
+      <div class="grid">
+        <div class="grid-item" onmouseover="showImage('/images/lab/1.jpg', 'Argentic flowers - 2022')">
+          <img src="/images/lab/1.jpg" alt="Item 1" class="thumbnail">
+        </div>
+        <div class="grid-item" onmouseover="showImage('/images/lab/Untitled_Artwork.jpg', 'Untitled_Artwork – 2024')">
+          <img src="/images/lab/Untitled_Artwork.jpg" alt="Item 2" class="thumbnail">
+        </div>
+        <div class="grid-item" onmouseover="showImage('/images/2498d3786c57d63d8c8b5060f5368d7e.jpg', 'Caption for Image 3')">
+          <img src="/images/2498d3786c57d63d8c8b5060f5368d7e.jpg" alt="Item 3" class="thumbnail">
+        </div>
+        <div class="grid-item" onmouseover="showImage('/images/9afc756ea53766b4984de88de6c947fb.jpg', 'Untitled_Artwork')">
+          <img src="/images/9afc756ea53766b4984de88de6c947fb.jpg" alt="Item 1" class="thumbnail">
+        </div>
+        <div class="grid-item" onmouseover="showImage('/images/23c6bf00c3c5ddaa0b783c7846695626.jpg', 'Caption for Image 2')">
+          <img src="/images/23c6bf00c3c5ddaa0b783c7846695626.jpg" alt="Item 2" class="thumbnail">
+        </div>
+        <div class="grid-item" onmouseover="showImage('/images/2498d3786c57d63d8c8b5060f5368d7e.jpg', 'Caption for Image 3')">
+          <img src="/images/2498d3786c57d63d8c8b5060f5368d7e.jpg" alt="Item 3" class="thumbnail">
+        </div>
+        <!-- * -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- extra -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add('loaded');
+  });
+</script>
+
+
+  <script src="scripts.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
