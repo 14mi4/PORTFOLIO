@@ -1,5 +1,3 @@
-// script.js
-
 
 // read more / close
 function toggleText() {
@@ -15,15 +13,14 @@ function toggleText() {
   }
 }
 
-// Back to top
+// back to top
 document.addEventListener("DOMContentLoaded", function() {
-  // Récupère le bouton et la section scrollable
+  // bouton
   let backToTopBtn = document.getElementById("back-to-top");
   let projectsSection = document.getElementById("projects");
 
-  // Vérifie si le bouton et la section ont bien été trouvés
   if (backToTopBtn && projectsSection) {
-    // Affiche ou cache le bouton selon la position de défilement dans la section
+    // show
     projectsSection.addEventListener("scroll", function() {
       if (projectsSection.scrollTop > 100) {
         backToTopBtn.classList.add("visible");
@@ -32,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
 
-    // Lorsque l'utilisateur clique sur le bouton, il remonte en haut de la section
+    // function
     backToTopBtn.addEventListener("click", function(event) {
       event.preventDefault();
       projectsSection.scrollTo({ top: 0, behavior: 'smooth' });
@@ -43,21 +40,17 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// carousel
 
-
-// Carousel
-// DOM utility functions:
-
+// DOM
 const el = (sel, par) => (par || document).querySelector(sel);
 const els = (sel, par) => (par || document).querySelectorAll(sel);
 const elNew = (tag, prop) => Object.assign(document.createElement(tag), prop);
 
-// Helper functions:
-
+// Hhlper
 const mod = (n, m) => (n % m + m) % m;
 
-// Task: Carousel:
-
+// task
 const carousel = (elCarousel) => {
 
   const animation = 500;
@@ -67,19 +60,19 @@ const carousel = (elCarousel) => {
   const elsSlides = els(".carousel-slide", elCarouselSlider);
   const elsBtns = [];
 
-  let itv; // Autoslide interval
-  let tot = elsSlides.length; // Total slides
+  let itv; // autoslide interval
+  let tot = elsSlides.length; // tptal slides
   let c = 0;
 
-  if (tot < 2) return; // Not enough slides. Do nothing.
+  if (tot < 2) return; // not enough slides -> do nothing.
 
-  // Methods:
+  // methods
   const anim = (ms = animation) => {
     const cMod = mod(c, tot);
-    // Move slider
+    // move slider
     elCarouselSlider.style.transitionDuration = `${ms}ms`;
     elCarouselSlider.style.transform = `translateX(${(-c - 1) * 100}%)`;
-    // Handle active classes (slide and bullet)
+    // handle active classes (slide and bullet)
     elsSlides.forEach((elSlide, i) => elSlide.classList.toggle("is-active", cMod === i));
     elsBtns.forEach((elBtn, i) => {
       elBtn.classList.toggle("is-active", cMod === i);
@@ -88,13 +81,13 @@ const carousel = (elCarousel) => {
   };
 
   const prev = () => {
-    if (c <= -1) return; // prevent blanks on fast prev-click
+    if (c <= -1) return;
     c -= 1;
     anim();
   };
 
   const next = () => {
-    if (c >= tot) return; // prevent blanks on fast next-click
+    if (c >= tot) return;
     c += 1;
     anim();
   };
@@ -114,16 +107,16 @@ const carousel = (elCarousel) => {
     elCarouselSlider.setAttribute("aria-live", "polite");
   };
 
-  // Events:
+  // events:
 
-  // Infinite slide effect:
+  // infinite slide effect:
   elCarouselSlider.addEventListener("transitionend", () => {
     if (c <= -1) c = tot - 1;
     if (c >= tot) c = 0;
-    anim(0); // quickly switch to "c" slide (with animation duration 0)
+    anim(0);
   });
 
-  // Change cursor based on hover position:
+  // change cursor based on hover position:
   elCarousel.addEventListener("mousemove", (event) => {
     const rect = elCarousel.getBoundingClientRect();
     const middleX = rect.width / 2;
@@ -136,7 +129,7 @@ const carousel = (elCarousel) => {
     }
   });
 
-  // Change slide on click:
+  // change slide on click:
   elCarousel.addEventListener("click", (event) => {
     const rect = elCarousel.getBoundingClientRect();
     const middleX = rect.width / 2;
@@ -147,18 +140,17 @@ const carousel = (elCarousel) => {
     }
   });
 
-  // Pause on pointer enter:
+  // pause on pointer enter:
   elCarousel.addEventListener("pointerenter", () => stop());
   elCarousel.addEventListener("pointerleave", () => play());
 
-  // Pause on focus:
+  // pause on focus:
   elCarousel.addEventListener("focus", () => stop(), true);
   elCarousel.addEventListener("blur", () => play(), true);
 
-  // Init:
+  // init:
 
-  // Navigation bullets:
-
+  // navigation bullets:
   const elNavigation = elNew("div", {
     className: "carousel-navigation",
     role: "group"
@@ -175,20 +167,20 @@ const carousel = (elCarousel) => {
     elsBtns.push(elBtn);
   }
 
-  // Insert bullets UI element:
+  // UI elements:
   elNavigation.append(...elsBtns);
   elCarousel.append(elNavigation);
 
-  // Clone first and last slides (for "infinite" slider effect)
+  // clone first and last slides (for "infinite" slider effect)
   elCarouselSlider.prepend(elsSlides[tot - 1].cloneNode(true));
   elCarouselSlider.append(elsSlides[0].cloneNode(true));
 
-  // Initial slide
+  // initial slide
   anim(0);
 
-  // Start autoplay
+  // start autoplay
   play();
 };
 
-// Allows to use multiple carousels on the same page:
+// allows to use multiple carousels on the same page:
 els(".carousel").forEach(carousel);

@@ -20,7 +20,7 @@
   font-style: normal;
 }
 
-/* ===== Scrollbar CSS ===== */
+/* ===== scrollbar CSS ===== */
 * {
   scrollbar-width: auto;
   scrollbar-color: #b9e21e #141414;
@@ -40,7 +40,7 @@
   border: 3px double #141414;
 }
 
-/* General */
+/* general */
 html, body {
   margin: 0;
   padding: 0;
@@ -54,6 +54,12 @@ html, body {
 
 body {
   cursor: grab;
+}
+
+.content-wrapper {
+  display: flex;
+  height: 100vh;
+  align-items: revert;
 }
 
 .header-container {
@@ -137,13 +143,7 @@ body {
   color: #741EFF;
 }
 
-/* Content Wrapper */
-.content-wrapper {
-  display: flex;
-  height: 100vh;
-}
-
-/* Welcome Section */
+/* welcome section */
 .welcome-section {
   flex: 0 0 45%;
   padding: 20px;
@@ -218,7 +218,7 @@ hr {
   outline: none;
 }
 
-/* Projects Section */
+/* projects section */
 .projects-section {
   flex: 1;
   overflow-y: auto;
@@ -323,11 +323,11 @@ hr {
   background: #B9E21E;
 }
 
-/* Back to Top Button */
+/* back to top button */
 #back-to-top {
   position: fixed;
   cursor: pointer;
-  bottom: 10px;
+  bottom: 0px;
   right: 10px;
   background-color: transparent;
   color: #B9E21E;
@@ -342,7 +342,7 @@ hr {
   text-decoration: none;
 }
 
-/* Media queries */
+/* responsive */
 @media (max-width: 768px) {
   .content-wrapper {
     flex-direction: column;
@@ -382,7 +382,7 @@ hr {
   }
 }
 
-/* Media queries / phones */
+/* responsive / phone */
 @media (max-width: 480px) {
   .header-container {
     flex-direction: column;
